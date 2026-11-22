@@ -66,8 +66,8 @@ jobs:
       - name: Generate Android scaffold (first run only)
         run: |
           if [ ! -d android ]; then
-            flutter create --platforms=android --org com.midostudio.brainbattlepro \
-              --project-name brain_battle_pro /tmp/scaffold
+            flutter create --platforms=android --org com.midostudio \
+              --project-name brainbattlepro /tmp/scaffold
             cp -r /tmp/scaffold/android ./android
           fi
 
