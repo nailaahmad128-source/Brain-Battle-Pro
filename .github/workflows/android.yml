@@ -92,6 +92,9 @@ jobs:
       - run: flutter pub get
       - run: dart run flutter_launcher_icons
 
+      - name: Format Dart source
+        run: dart format lib test
+
       - name: Check formatting
         run: dart format --output=none --set-exit-if-changed lib test
 
