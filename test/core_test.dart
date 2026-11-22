@@ -49,6 +49,7 @@ void main() {
   testWidgets('privacy policy page renders its sections', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: PrivacyPage()));
     expect(find.text('Privacy Policy'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Advertising (Google AdMob)'), 300, scrollable: find.byType(Scrollable));
     expect(find.text('Advertising (Google AdMob)'), findsOneWidget);
   });
 
