@@ -93,8 +93,7 @@ g.write_text(t)
 for pat, what in [(rf'compileSdk\s*=?\s*{SDK}\b', f'compileSdk {SDK}'),
                   (rf'targetSdk\s*=?\s*{SDK}\b', f'targetSdk {SDK}'),
                   (rf'minSdk\s*=?\s*{MIN_SDK}\b', f'minSdk {MIN_SDK}'),
-                  (r'namespace\\s*=\\s*["\\']' + re.escape(APP_ID_EXPECTED) + r'["\\']', f'namespace {APP_ID_EXPECTED}'),
-                  (r'applicationId\\s*=\\s*["\\']' + re.escape(APP_ID_EXPECTED) + r'["\\']', f'applicationId {APP_ID_EXPECTED}')]:
+                  (re.escape(APP_ID_EXPECTED), f'applicationId {APP_ID_EXPECTED}')]:
     if not re.search(pat, t):
         die(f'{g} does not contain {what} after patching (template changed?).')
 if prod and 'signingConfigs.getByName("release")' not in t and 'signingConfig signingConfigs.release' not in t:
