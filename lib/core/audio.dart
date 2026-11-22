@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'services.dart';
 
@@ -16,7 +17,9 @@ class Sfx {
         await p.setPlayerMode(PlayerMode.lowLatency);
         _p[n] = p;
       }
-    } catch (_) {}
+    } catch (e) {
+      debugPrint('BBP Sfx.init failed: $e');
+    }
   }
 
   static Future<void> play(String n) async {

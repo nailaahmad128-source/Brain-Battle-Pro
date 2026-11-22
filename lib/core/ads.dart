@@ -74,7 +74,9 @@ class AdService {
       ready.value = true;
       _loadInterstitial();
       _loadRewarded();
-    } catch (_) {}
+    } catch (e) {
+      debugPrint('BBP AdService.init failed: $e');
+    }
   }
 
   void _loadInterstitial() {
